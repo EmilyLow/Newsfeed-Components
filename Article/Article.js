@@ -118,6 +118,8 @@ function articleMaker(input) {
 
   const title = document.createElement('h3');
 
+  const date = document.createElement('p');
+
   //Maybe should not have 3 here
   const par1 = document.createElement('p');
   const par2 = document.createElement('p');
@@ -126,13 +128,24 @@ function articleMaker(input) {
   const expandButton = document.createElement('span');
   //I may still need to add classes to these somehow
   article.appendChild(title);
+  article.appendChild(date);
   article.appendChild(par1);
   article.appendChild(par2);
   article.appendChild(par3);
   article.appendChild(expandButton);
 
+  //Add content
+
+
+  title.textContent = input['title'];
+  date.textContent = input['date'];
+  par1.textContent = input['firstParagraph'];
+  par2.textContent = input['secondParagraph'];
+  par3.textContent = input['thirdParagraph'];
+
   return article;
 
 }
 
-console.log(articleMaker());
+console.log(articleMaker(data[1]));
+console.log("test");
