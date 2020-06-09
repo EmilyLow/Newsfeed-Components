@@ -112,7 +112,7 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
 
-function articleMaker() {
+function articleMaker(input) {
 
   const article = document.createElement('div');
 
@@ -124,6 +124,15 @@ function articleMaker() {
   const par3 = document.createElement('p');
 
   const expandButton = document.createElement('span');
+  //I may still need to add classes to these somehow
+  article.appendChild(title);
+  article.appendChild(par1);
+  article.appendChild(par2);
+  article.appendChild(par3);
+  article.appendChild(expandButton);
 
+  return article;
 
 }
+
+console.log(articleMaker());
