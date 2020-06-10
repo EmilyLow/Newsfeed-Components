@@ -111,3 +111,71 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker(input) {
+
+  const article = document.createElement('div');
+
+  article.classList.add('article');
+
+  const title = document.createElement('h3');
+
+  const date = document.createElement('p');
+
+  //Maybe should not have 3 here
+  const par1 = document.createElement('p');
+  const par2 = document.createElement('p');
+  const par3 = document.createElement('p');
+
+  const button = document.createElement('span');
+
+  button.classList.add('expandButton');
+
+  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(par1);
+  article.appendChild(par2);
+  article.appendChild(par3);
+  article.appendChild(button);
+
+  //Add content
+
+
+  title.textContent = input['title'];
+  date.textContent = input['date'];
+  par1.textContent = input['firstParagraph'];
+  par2.textContent = input['secondParagraph'];
+  par3.textContent = input['thirdParagraph'];
+  
+  
+  //I am not sure if this is supposed to be necessary
+  button.textContent = "Expand";
+
+  
+  button.addEventListener('click', (event) =>  {
+    article.classList.toggle('article-open');
+  });
+
+  return article;
+
+}
+
+
+
+let newArt = {
+  title: "New Article",
+  date: "July 4th 2050",
+  firstParagraph: "Once upon a time, in a world far far away. A giant lived on a hill in the clouds. The hill was very tall, and the clouds were very far away, but the hill was in the clouds still.",
+  secondParagraph: "Test test test test test test test. Test test test test test test test. Test test test test test test test. ",
+  thirdParagraph: "Bee in your bonnet Hand of Glory elder wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir"
+
+}
+
+data.push(newArt);
+
+const articles = document.querySelector('.articles');
+data.forEach((obj) => {
+  articles.appendChild(articleMaker(obj));
+
+});
+
