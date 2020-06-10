@@ -125,14 +125,16 @@ function articleMaker(input) {
   const par2 = document.createElement('p');
   const par3 = document.createElement('p');
 
-  const expandButton = document.createElement('span');
-  //I may still need to add classes to these somehow
+  const button = document.createElement('span');
+
+  button.classList.add('expandButton');
+
   article.appendChild(title);
   article.appendChild(date);
   article.appendChild(par1);
   article.appendChild(par2);
   article.appendChild(par3);
-  article.appendChild(expandButton);
+  article.appendChild(button);
 
   //Add content
 
@@ -142,6 +144,11 @@ function articleMaker(input) {
   par1.textContent = input['firstParagraph'];
   par2.textContent = input['secondParagraph'];
   par3.textContent = input['thirdParagraph'];
+
+  
+  button.addEventListener('click', (event) =>  {
+    article.classList.toggle('article-open');
+  });
 
   return article;
 
