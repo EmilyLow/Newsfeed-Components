@@ -116,6 +116,8 @@ function articleMaker(input) {
 
   const article = document.createElement('div');
 
+  article.classList.add('article');
+
   const title = document.createElement('h3');
 
   const date = document.createElement('p');
@@ -144,6 +146,10 @@ function articleMaker(input) {
   par1.textContent = input['firstParagraph'];
   par2.textContent = input['secondParagraph'];
   par3.textContent = input['thirdParagraph'];
+  
+  
+  //I am not sure if this is supposed to be necessary
+  button.textContent = "Expand";
 
   
   button.addEventListener('click', (event) =>  {
@@ -154,5 +160,22 @@ function articleMaker(input) {
 
 }
 
-console.log(articleMaker(data[1]));
-console.log("test");
+
+
+let newArt = {
+  title: "New Article",
+  date: "July 4th 2050",
+  firstParagraph: "Once upon a time, in a world far far away. A giant lived on a hill in the clouds. The hill was very tall, and the clouds were very far away, but the hill was in the clouds still.",
+  secondParagraph: "Test test test test test test test. Test test test test test test test. Test test test test test test test. ",
+  thirdParagraph: "Bee in your bonnet Hand of Glory elder wand, spectacles House Cup Bertie Bott’s Every Flavor Beans Impedimenta. Stunning spells tap-dancing spider Slytherin’s Heir"
+
+}
+
+data.push(newArt);
+
+const articles = document.querySelector('.articles');
+data.forEach((obj) => {
+  articles.appendChild(articleMaker(obj));
+
+});
+
